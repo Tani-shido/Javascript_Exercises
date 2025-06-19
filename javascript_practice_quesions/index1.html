@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document - 1</title>
+</head>
+<body>
+<!-- Psuecode Code for VERSION 1
+    1. Html code = + button then <h1> tag then - button 
+    2. Assign functions to buttons
+    3. Script = Define function for adding
+    4. get num = addValue (string)
+    5. convert addValue = Number(newAddValue)
+    6. newAddValue = 0
+    7. add +1 to it 
+    8. update the element using innerHTML -->
+<!-- 
+    This code will work as a beginner but it is not recommended FOR WRITING CODE LIKE A PRO CHECK VERSION 2 AND SEE WHAT HAVE I LEARNT TODAY
+
+    <button onclick="addNum()">+</button>
+        <h1>0</h1>
+    <button onclick="subNum()">-</button>
+    <script> 
+        function addNum() {
+            const addValue = document.querySelector("h1").innerHTML;
+            let newAddValue = Number(addValue);
+            newAddValue = newAddValue + 1;
+            document.querySelector("h1").innerHTML = newAddValue;
+        }
+        function subNum() {
+            const addValue = document.querySelector("h1").innerHTML;
+            let newAddValue = Number(addValue);
+            newAddValue = newAddValue - 1;
+            document.querySelector("h1").innerHTML = newAddValue;
+        }
+    </script> -->
+
+
+<!-- Psuecode Code for VERSION 2
+ 1. Make + button, h1 tag, - button using HTML and assign them Ids  
+ 2. Script =  Get element, buttons and assign them variables
+ 3. Assign a (num) variable for maths
+ 4. Use eventListener() (Easier to use and clean to write)
+ 5. add click event then a function for math using our (num) variable
+ 6. store the updated num value into the main value
+ 7. Do the same for subtract as well-->
+
+    <!-- <button id="addNum">ADD(+)</button>
+    <h1 id="valueNum">0</h1>
+    <button id="subNum">MINUS(-)</button>
+    <script>
+        const addButton = document.getElementById("addNum");
+        const value = document.getElementById("valueNum");
+        const subButton = document.getElementById("subNum");
+
+        num = 0;
+
+        addButton.addEventListener("click", function(){
+            num = num + 1;
+            value.innerHTML = num; 
+        });
+        subButton.addEventListener("click" , function(){
+            num = num - 1;
+            value.innerHTML = num;
+        });
+    </script> -->
+</body>
+</html>
