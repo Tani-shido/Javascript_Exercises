@@ -6,6 +6,8 @@
     <title>Document - 1</title>
 </head>
 <body>
+<!-- To read from the DOM, modify a value, and write back to the DOM. -->
+
 <!-- Psuecode Code for VERSION 1
     1. Html code = + button then <h1> tag then - button 
     2. Assign functions to buttons
@@ -16,7 +18,7 @@
     7. add +1 to it 
     8. update the element using innerHTML -->
 <!-- 
-    This code will work as a beginner but it is not recommended FOR WRITING CODE LIKE A PRO CHECK VERSION 2 AND SEE WHAT HAVE I LEARNT TODAY
+    This code will work as a beginner but it is not recommended FOR WRITING CODE LIKE A PRO CHECK VERSION 2 AND SEE WHAT HAVE I LEARNT TODAY -->
 
     <button onclick="addNum()">+</button>
         <h1>0</h1>
@@ -34,7 +36,7 @@
             newAddValue = newAddValue - 1;
             document.querySelector("h1").innerHTML = newAddValue;
         }
-    </script> -->
+    </script>
 
 
 <!-- Psuecode Code for VERSION 2
@@ -46,9 +48,10 @@
  6. store the updated num value into the main value
  7. Do the same for subtract as well-->
 
-    <!-- <button id="addNum">ADD(+)</button>
+    <button id="addNum">ADD(+)</button>
     <h1 id="valueNum">0</h1>
     <button id="subNum">MINUS(-)</button>
+    
     <script>
         const addButton = document.getElementById("addNum");
         const value = document.getElementById("valueNum");
@@ -64,6 +67,6 @@
             num = num - 1;
             value.innerHTML = num;
         });
-    </script> -->
+    </script>
 </body>
 </html>
