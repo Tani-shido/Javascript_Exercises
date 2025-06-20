@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO - 1</title>
+    <style>
+        .completed{
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <input id="input" type="text">
+    <button id="addButton">ADD</button>
+    <ul id="unOdered"></ul>
+
+
+    <script>
+        const input = document.getElementById("input");
+        const addButton = document.getElementById("addButton");
+        const unoderedList = document.getElementById("unOdered");
+        addButton.addEventListener("click" , function(){
+            let listData = input.value;
+            if(listData.trim() !== "") {
+                let listItem = document.createElement("li");
+                input.value = "";
+
+                const completed = document.createElement("button")
+                completed.innerText = "Completed"
+                completed.addEventListener("click" , function(){
+                    listItem.classList.toggle("completed");
+                })
+
+                const deleteItem = document.createElement("button");
+                deleteItem.innerText = "Delete";
+                deleteItem.addEventListener("click" , function(){
+                    deleteItem.parentElement.remove()
+                });
+
+                listItem.innerText = listData;
+
+                unoderedList.appendChild(listItem);
+                listItem.appendChild(deleteItem);
+                listItem.appendChild(completed);
+            }
+        });
+    </script>
+</body>
+</html>

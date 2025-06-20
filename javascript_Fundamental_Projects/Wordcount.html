@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordCount</title>
+    <style>
+        
+        textarea{
+            border: 2px solid ;
+            width: 800px;
+            height: 500px;
+            font-size: 1.5em;
+        }
+        button{
+            font-size: 30px;
+        }
+        .hidden{
+            display: none;
+        }
+        #display{
+            border: 2px solid black;
+            width: 250px;
+            height: 30px;
+            font-size: 1.8em;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        #mode{
+            margin-left: 85vw;
+        }
+        .darkBackground{
+            background-color: rgb(7, 7, 41);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <button id="mode">Light/Dark</button>
+    <div class="container">
+        <h1>To check the word count in a paragraph</h1>
+        <textarea class="hidden" type="text" placeholder="Start typing..."></textarea>
+        <button id="startBtn">START</button>
+        <button id="submitBtn">SUBMIT</button>
+        <button id="reset" class="hidden" >RESET</button>
+        <div id="display" class="hidden">Word count is : <span></span> </div>
+    </div>    
+
+    <script>
+        const textarea = document.querySelector("textarea");
+        const startButton = document.getElementById("startBtn");
+        const submitButton = document.getElementById("submitBtn");
+        const span = document.querySelector("span");
+        const resetButton = document.getElementById("reset");
+        const toggleButton = document.getElementById("mode");
+        const display = document.getElementById("display");
+        const mainBody = document.querySelector("body")
+
+        startButton.addEventListener("click" , function(){    
+            textarea.classList.remove("hidden");
+        });
+
+        submitButton.addEventListener("click" , function(){
+
+            textarea.classList.add("hidden");
+            display.classList.remove("hidden");
+            resetButton.classList.remove("hidden");
+
+                function WordCount(str) {
+                  return str.trim() === "" ? 0 : str.trim().split(/\s+/).length;
+                }
+
+            span.innerHTML = WordCount(textarea.value);
+        });
+
+        resetButton.addEventListener("click" , function(){
+            textarea.value = "";
+            span.innerHTML = "";
+        });
+
+        toggleButton.addEventListener("click" , function(){
+            mainBody.classList.toggle("darkBackground");
+        });
+    </script>
+</body>
+</html>
