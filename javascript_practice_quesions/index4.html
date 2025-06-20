@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Are You Sure? Button</title>
+    <style>
+        #buttonOne{
+            background-color: rgb(209, 23, 23);
+        }
+        #buttonTwo{
+            background-color: rgb(31, 224, 63);
+        }
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- To manage the visibility and state of different elements -->
+
+    <!-- Pseudocode 
+    1. Create 2 buttons btn1 and btn2 also add ids to them and assign btn2 class as well
+    2. give them background colors using CSS 
+    3. assign 1 class named hidden with display:none property to hide a button
+    4. Now define variables to buttons
+    5. Add click event in btn1 and define function 
+    6. when btn1 clicked, it removes hidden class from btn2
+    7. and add it to btn1 using element.classlist.add/remove("classname/hidden")-->
+
+    <button id="buttonOne">Delete</button>
+    <button id="buttonTwo" class="hidden">Are You Sure?</button>
+
+    <script>
+        const firstBtn = document.getElementById("buttonOne");
+        const secondBtn = document.getElementById("buttonTwo");
+
+        firstBtn.addEventListener("click" , function(){
+            secondBtn.classList.remove("hidden");
+            firstBtn.classList.add("hidden");
+        })
+    </script>
+</body>
+</html>
