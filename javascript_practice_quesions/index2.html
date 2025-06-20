@@ -7,16 +7,23 @@
 </head>
 <body>
     <!-- React to user input in real-time -->
+    <!-- Psuecode 
+    1. Create an input tag and <p> tag in <p> tag there is a span for displaying value
+    2. input tag takes input span displays inputValue in realtime
+    3. get both elements and store them in variables (inputValue , displaySpan)
+    4. add an input event in inputValue
+    5. add a function in event which 
+    6. takes the inputValue and put it in displaySpan -->
     <input type="text">
     <p>
         Text is showing here: <span id="spanP"></span>
     </p>
     <script>
         const inputValue = document.querySelector("input");
-        let displayP = document.getElementById("spanP");
+        let displaySpan = document.getElementById("spanP");
         
         inputValue.addEventListener("input" , function(){
-            displayP.innerHTML = inputValue.value;
+            displaySpan.innerHTML = inputValue.value;
         })
     </script>
 </body>
