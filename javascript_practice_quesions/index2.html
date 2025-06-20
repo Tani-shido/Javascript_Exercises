@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The input mirror</title>
+</head>
+<body>
+    <!-- React to user input in real-time -->
+    <input type="text">
+    <p>
+        Text is showing here: <span id="spanP"></span>
+    </p>
+    <script>
+        const inputValue = document.querySelector("input");
+        let displayP = document.getElementById("spanP");
+        
+        inputValue.addEventListener("input" , function(){
+            displayP.innerHTML = inputValue.value;
+        })
+    </script>
+</body>
+</html>
