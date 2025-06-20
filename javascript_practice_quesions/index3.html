@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light/Dark mode Toggle button</title>
+    <style>
+        .darkBackground{
+            background-color: rgb(10, 10, 109);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Psuedocode
+    1. Create a button in html and give it an id
+    2. Define a CSS class for Dark Background 
+    3. define variables to body and button (fullBody , toggleBtn)
+    4. add a click event in button 
+    5. and assign a function which
+    6. toggles the background class using element.classlist.toggle("classname")-->
+    
+    <button id="toggleButton">Toggle Dark Mode</button>
+    <script>
+        const toggleBtn = document.getElementById("toggleButton");
+        const fullBody = document.querySelector("body");
+        toggleBtn.addEventListener("click" , function(){
+            fullBody.classList.toggle("darkBackground");
+        });
+    </script>
+</body>
+</html>
