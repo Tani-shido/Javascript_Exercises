@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talk To The World</title>
+</head>
+<body>
+    <img id="image" src="">
+    <button id="newDogBtn">Get new DOG</button>
+    
+
+    <script>
+        const image = document.getElementById("image");
+        const newDog = document.getElementById("newDogBtn");
+
+        newDog.addEventListener("click" , async function() {
+            try{
+                const getData = await fetch("https://dog.ceo/api/breeds/image/random");
+                const recievedData = await getData.json()
+                image.src = recievedData.message;
+            }
+            catch(error){
+                console.error("Opps! Seems like an error");
+                alert("Sorry, looks like the site is not responding");
+            }
+        });
+    </script>
+</body>
+</html>

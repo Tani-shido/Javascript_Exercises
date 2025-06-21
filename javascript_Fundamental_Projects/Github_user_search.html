@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub User Searcher</title>
+</head>
+<body>
+    <input id="input" type="text" placeholder="Enter Your username">
+    <button id="searchBtn">Search</button>
+    <div id="profileContainer">
+        <img>
+        <h1></h1>
+        <p></p>
+    </div>
+
+    <script>
+        const userinput = document.getElementById("input");
+        const searcButton = document.getElementById("searchBtn");
+        const profileContainer = document.getElementById("profileContainer");
+
+        
+        searcButton.addEventListener("click" , async function() {
+            const userName = userinput.value;
+            
+                if (!userName) {
+                    alert("Please enter a username first!");
+                    return;
+                }
+
+            try{
+                const getUser = await fetch(`https://api.github.com/users/${userName}`);
+                const recievedUser = await getUser.json();
+
+                if (recievedUser.message === "Not Found") {
+                    profileContainer.innerHTML = `<p>Sorry, that user was not found.</p>`;
+                    return;
+                }
+                console.log(recievedUser);
+
+                const profileContent = `
+                    <img src="${recievedUser.avatar_url}" alt="User Avatar" width="150">
+                    <h2>${recievedUser.name}</h2>
+                    <p><strong>Bio:</strong> ${recievedUser.bio || 'No bio available.'}</p>
+                    <p><strong>Followers:</strong> ${recievedUser.followers}</p>
+                    <p><strong>Public Repos:</strong> ${recievedUser.public_repos}</p>
+                `;
+                profileContainer.innerHTML = profileContent;
+            }
+            catch(error){
+                console.error("Invalid input.");
+                alert("User not found.")
+            }
+        });
+    </script>
+</body>
+</html>
