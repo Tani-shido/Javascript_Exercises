@@ -4,15 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitHub User Searcher</title>
+    <style>
+        .bigContainer{
+            border: 2px solid black;
+            border-radius: 10px;
+            width: 80vw;
+            height: 80vh;
+            margin-top: 50px;
+            box-shadow: 0px 0px 20px 2px #000000;
+            display: flex;
+            justify-content: center;
+        }
+        .container{
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+
+    </style>
 </head>
 <body>
-    <input id="input" type="text" placeholder="Enter Your username">
-    <button id="searchBtn">Search</button>
-    <div id="profileContainer">
-        <img>
-        <h1></h1>
-        <p></p>
-    </div>
+    <center>
+        <div class="bigContainer">
+            <div class="container">
+                <input id="input" type="text" placeholder="Enter Your username">
+                <button id="searchBtn">Search</button>
+                <div id="profileContainer">
+                    <img>
+                    <h1></h1>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </center>
 
     <script>
         const userinput = document.getElementById("input");
