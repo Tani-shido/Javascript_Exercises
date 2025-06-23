@@ -5,15 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WordCount</title>
     <style>
+        /* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
         
+        *{
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
         textarea{
             border: 2px solid ;
-            width: 800px;
-            height: 500px;
+            border-radius: 5px;
+            width: 600px;
+            height: 300px;
             font-size: 1.5em;
+            box-shadow:0px 0px 10px 6px rgba(68,25,112,0.46);
+            background-color: rgb(76, 171, 226);
         }
         button{
             font-size: 30px;
+            padding: 5px;
+            border-radius: 10px;
+            border: .5px solid;
+
         }
         .hidden{
             display: none;
@@ -25,6 +38,12 @@
             font-size: 1.8em;
         }
         .container{
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 20px;
+
+            box-shadow: inset 0px 0px 10px 6px rgba(68,25,112,0.46);
+            width: 650px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -37,19 +56,21 @@
             background-color: rgb(7, 7, 41);
             color: white;
         }
+        
     </style>
 </head>
 <body>
     <button id="mode">Light/Dark</button>
-    <div class="container">
-        <h1>To check the word count in a paragraph</h1>
-        <textarea class="hidden" type="text" placeholder="Start typing..."></textarea>
-        <button id="startBtn">START</button>
-        <button id="submitBtn">SUBMIT</button>
-        <button id="reset" class="hidden" >RESET</button>
-        <div id="display" class="hidden">Word count is : <span></span> </div>
-    </div>    
-
+    <center>
+        <div class="container">
+            <h1>To check the word count in a paragraph</h1>
+            <textarea class="hidden" type="text" placeholder="Start typing..."></textarea>
+            <button id="startBtn">START</button>
+            <button id="submitBtn">SUBMIT</button>
+            <button id="reset" class="hidden" >RESET</button>
+            <div id="display" class="hidden">Word count is : <span></span> </div>
+        </div>    
+    </center>
     <script>
         const textarea = document.querySelector("textarea");
         const startButton = document.getElementById("startBtn");
@@ -62,6 +83,7 @@
 
         startButton.addEventListener("click" , function(){    
             textarea.classList.remove("hidden");
+
         });
 
         submitButton.addEventListener("click" , function(){
