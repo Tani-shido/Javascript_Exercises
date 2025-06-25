@@ -12,6 +12,9 @@
     background: #7300bf;
     background: linear-gradient(90deg,rgba(115, 0, 191, 1) 0%, rgb(116, 36, 228) 44%, rgb(34, 162, 253) 23%, rgb(116, 36, 228) 44%);
     box-shadow: inset 0px 9px 33px 19px #232a3b;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
 }
 
 .container{
@@ -44,10 +47,4 @@
             cursor: pointer;
         }
     };
-}
-
-.bigContainer{
-    display: flex;
-    justify-content: center;
-    padding: 20px;
 }
