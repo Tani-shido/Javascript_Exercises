@@ -4,19 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO - 1</title>
-    <style>
-        .completed{
-            text-decoration: line-through;
-            opacity: 0.6;
-        }
-    </style>
+    <link rel="stylesheet" href="Todo_pro.css">
 </head>
 <body>
-    <input id="input" type="text">
-    <button id="addButton">ADD</button>
-    <ul id="unOdered"></ul>
+    <div class="bigContainer">
+      <div class="container">
+        
+          <h1>Add a note....</h1>
+          <input id="input" type="text">
+          <button onclick="addTodo()">Add Note</button>
+          <div id="todo"></div>
+
+      </div>
+    </div>
+
+    <script>
+
+    let todos = [];
+
+    function addTodo() {
+      todos.push({
+        title: document.querySelector("input").value
+      })
+      render();
+    }
+
+    function deleteTodo(index) {
+      todos.splice(index , 1);
+      render();
+    }
 
 
-    <script src="Todo_pro.js"></script>
+    function render() {
+        document.getElementById("todo").innerHTML = "";
+      for (let i = 0; i < todos.length; i++) {
+        const todo = todos[i];
+        const divEl = document.createElement("div");
+        const h1 = document.createElement("hi");
+
+        const deleteButton = document.createElement("button");
+        deleteButton.innerText = "Delete";
+        deleteButton.setAttribute("onclick" , "deleteTodo()");
+        
+        const completeButton = document.createElement("input");
+        completeButton.setAttribute('type' , 'checkbox');
+        completeButton.addEventListener("click" , function(){
+          divEl.classList.toggle("completed");
+        });
+
+        h1.innerHTML = todo.title;
+        divEl.append(completeButton);
+        divEl.append(h1);
+        divEl.append(deleteButton);
+        document.getElementById("todo").appendChild(divEl);
+        document.querySelector("input").value = "";
+      }
+    }
+
+    </script>
 </body>
 </html>
