@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Name of the page">
+    <button onclick="addPage()">Add Page</button>
+    <div id="pageHolderMain"></div>
+
+    <script>
+        let pages = [];
+
+        function addPage() {
+            pages.push({
+                title: document.querySelector("input").value
+            })
+            renderPage();
+        }
+
+        function renderPage() {
+            document.getElementsByClassName("pageHolder").value = "";
+            for(let i = 0; i < pages.length; i++){
+                const page = pages[i];
+                const pageHolder = document.createElement("div");
+                const pageContent = document.createElement("h3");
+
+                const deletePage = document.createElement("button");
+                deletePage.innerHTML = "Delete Page";
+                deletePage.setAttribute("onclick" , "deletePage()");
+
+                const editPage = document.createElement("button");
+                editPage.innerHTML = "Edit Page";
+                deletePage.setAttribute("onclick" , "editPage()");
+
+                pageContent.innerHTML = page.title;
+                pageHolder.append(pageContent);
+                pageHolder.append(editPage);
+                pageHolder.append(deletePage);
+                document.getElementById("pageHolderMain").appendChild(pageHolder);
+                document.querySelector("input").value = "";
+
+            }
+        }
+    </script>
+</body>
+</html>
