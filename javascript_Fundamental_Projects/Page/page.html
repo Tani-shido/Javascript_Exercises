@@ -3,47 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TODO - 1</title>
+    <!-- <link rel="stylesheet" href="Todo_pro.css"> -->
 </head>
 <body>
-    <input type="text" placeholder="Name of the page">
-    <button onclick="addPage()">Add Page</button>
-    <div id="pageHolderMain"></div>
+    <div class="bigContainer">
+      <div class="container1">
+        
+        <h1>Add a note....</h1>
+        <input id="input" type="text">
+        <button onclick="addTodo()">Add Note</button>
+        <div id="todo"></div>
 
-    <script>
-        let pages = [];
+      </div>
+      <div class="container2">  
 
-        function addPage() {
-            pages.push({
-                title: document.querySelector("input").value
-            })
-            renderPage();
-        }
+        <h1>Add a Page....</h1>
+        <input id="inputPage" type="text">
+        <button onclick="addPage()">Add Page</button>
+        <div id="page"></div>
 
-        function renderPage() {
-            document.getElementsByClassName("pageHolder").value = "";
-            for(let i = 0; i < pages.length; i++){
-                const page = pages[i];
-                const pageHolder = document.createElement("div");
-                const pageContent = document.createElement("h3");
+      </div>
 
-                const deletePage = document.createElement("button");
-                deletePage.innerHTML = "Delete Page";
-                deletePage.setAttribute("onclick" , "deletePage()");
+      <div class="container3"></div>
+    </div>
 
-                const editPage = document.createElement("button");
-                editPage.innerHTML = "Edit Page";
-                deletePage.setAttribute("onclick" , "editPage()");
-
-                pageContent.innerHTML = page.title;
-                pageHolder.append(pageContent);
-                pageHolder.append(editPage);
-                pageHolder.append(deletePage);
-                document.getElementById("pageHolderMain").appendChild(pageHolder);
-                document.querySelector("input").value = "";
-
-            }
-        }
-    </script>
+    <script src="TodoV1.js"></script>
 </body>
 </html>
